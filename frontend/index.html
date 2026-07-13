@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💰 Keuangan Pribadi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <h1><i class="fas fa-wallet"></i> Keuangan Pribadi</h1>
+    <div class="subtitle">Catat pemasukan & pengeluaran dengan mudah</div>
+
+    <div class="balance-card">
+      <div class="balance-item">
+        <span class="balance-label">Saldo Total</span>
+        <div class="balance-number" id="totalBalance">Rp 0</div>
+      </div>
+      <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div class="income-box">
+          <i class="fas fa-arrow-up"></i>
+          <span id="totalIncome">Rp 0</span>
+        </div>
+        <div class="expense-box">
+          <i class="fas fa-arrow-down"></i>
+          <span id="totalExpense">Rp 0</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="transaction-form" id="transactionForm">
+      <div class="form-group">
+        <label><i class="fas fa-tag"></i> Kategori</label>
+        <select id="category" required>
+          <option value="Makanan">🍔 Makanan</option>
+          <option value="Transportasi">🚗 Transportasi</option>
+          <option value="Belanja">🛍️ Belanja</option>
+          <option value="Tagihan">📄 Tagihan</option>
+          <option value="Hiburan">🎮 Hiburan</option>
+          <option value="Lainnya">📌 Lainnya</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label><i class="fas fa-pen"></i> Deskripsi</label>
+        <input type="text" id="description" placeholder="Misal: Makan siang" required />
+      </div>
+
+      <div class="form-group">
+        <label><i class="fas fa-money-bill"></i> Jumlah (Rp)</label>
+        <input type="number" id="amount" placeholder="0" min="0" required />
+      </div>
+
+      <div class="form-group" style="flex: 0 1 auto;">
+        <label><i class="fas fa-exchange-alt"></i> Tipe</label>
+        <select id="type">
+          <option value="income">Pemasukan</option>
+          <option value="expense">Pengeluaran</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-add">
+        <i class="fas fa-plus-circle"></i> Tambah
+      </button>
+    </form>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="color: #1a2639;"><i class="fas fa-list-ul"></i> Riwayat Transaksi</h3>
+      <button class="btn-reset" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="transaction-list" id="transactionList">
+      <div class="empty-state">
+        <p>Belum ada transaksi. Tambahkan sekarang!</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
